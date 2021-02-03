@@ -4,7 +4,7 @@ on:
     - cron: "0 0 * * 0"  # 每周更新一次
   push:
     branches:
-      - main
+      - master
     # paths-ignore:
       # - "*.zip"
       # - "*.dgst"
@@ -21,7 +21,7 @@ jobs:
 
       - name: Check and release
         run: |
-          CORE_TAG_URL="https://api.github.com/repos/v2fly/v2ray-core/releases/latest"
+          CORE_TAG_URL="https://api.github.com/repos/XTLS/Xray-core/releases/latest"
           CORE_LATEST_VER=`curl -s ${CORE_TAG_URL} --connect-timeout 5 | grep 'tag_name' | cut -d\" -f4`
           if [[ ${CORE_LATEST_VER} != v* ]]; then
             CORE_LATEST_VER=v${CORE_LATEST_VER}
